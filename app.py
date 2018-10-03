@@ -150,6 +150,28 @@ def state(year,state):
 
     return jsonify(all_data)
 
+@app.route("/data/<start>/<end>/<state>")
+# CHOROPLETH: all states, single year, and cause of death
+def yearrangestate(start,end,state):
+    session = Session(engine)
+
+    #placeholder for selection statement, so we don't return the entire table and slow down query
+
+    results = session.query(deaths).filter(deaths.year >= start).filter(deaths.year <= end).filter(deaths.state == state).all()
+
+    all_data = []
+    for death in results:
+        death_dict = {}
+        death_dict["id"] = death.id
+        death_dict["year"] = death.year
+        death_dict["state"] = death.state
+        death_dict["cause"] = death.cause
+        death_dict["deaths"] = death.deaths
+        death_dict["death_rate"] = death.death_rate
+        all_data.append(death_dict)
+
+    return jsonify(all_data)
+
 
 # USER TABE: year, state, cause
 
