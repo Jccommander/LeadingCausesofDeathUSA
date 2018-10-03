@@ -60,10 +60,33 @@ def data():
 # # TESTING
 # #********************
 
-#@app.route("/data/<year>", defaults={"cause":None})
-@app.route("/data/<year>+<cause>")
+
+@app.route("/data/<year>")
 # CHOROPLETH: all states, single year, and cause of death
-def year(year, cause):
+def year(year):
+    session = Session(engine)
+
+    #placeholder for selection statement, so we don't return the entire table and slow down query
+
+    results = session.query(deaths).filter(deaths.year == year).all()
+
+    all_data = []
+    for death in results:
+        death_dict = {}
+        death_dict["id"] = death.id
+        death_dict["year"] = death.year
+        death_dict["state"] = death.state
+        death_dict["cause"] = death.cause
+        death_dict["deaths"] = death.deaths
+        death_dict["death_rate"] = death.death_rate
+        all_data.append(death_dict)
+
+    return jsonify(all_data)
+
+#@app.route("/data/<year>", defaults={"cause":None})
+@app.route("/data/<year>/<cause>")
+# CHOROPLETH: all states, single year, and cause of death
+def yearcause(year, cause):
     session = Session(engine)
 
     #placeholder for selection statement, so we don't return the entire table and slow down query
@@ -83,14 +106,14 @@ def year(year, cause):
 
     return jsonify(all_data)
 
-@app.route("/data/<year>")
+@app.route("/data/<year>/<state>")
 # CHOROPLETH: all states, single year, and cause of death
-def year(year, cause):
+def yearstate(year,state):
     session = Session(engine)
 
     #placeholder for selection statement, so we don't return the entire table and slow down query
 
-    results = session.query(deaths).filter(deaths.year == year).all()
+    results = session.query(deaths).filter(deaths.year == year).filter(deaths.state == state).all()
 
     all_data = []
     for death in results:
@@ -104,6 +127,29 @@ def year(year, cause):
         all_data.append(death_dict)
 
     return jsonify(all_data)
+
+@app.route("/data/<state>")
+# CHOROPLETH: all states, single year, and cause of death
+def state(year,state):
+    session = Session(engine)
+
+    #placeholder for selection statement, so we don't return the entire table and slow down query
+
+    results = session.query(deaths).filter(deaths.state == state).all()
+
+    all_data = []
+    for death in results:
+        death_dict = {}
+        death_dict["id"] = death.id
+        death_dict["year"] = death.year
+        death_dict["state"] = death.state
+        death_dict["cause"] = death.cause
+        death_dict["deaths"] = death.deaths
+        death_dict["death_rate"] = death.death_rate
+        all_data.append(death_dict)
+
+    return jsonify(all_data)
+
 
 # USER TABE: year, state, cause
 
