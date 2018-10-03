@@ -1,14 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
+<!--DEFINING THE HEADER TO CONTAIN BOOTSTRAP STYLING-->
 <head>
-  <title>Example</title>
+    <meta charset="utf-8" />
+    <title>Health Data Analyzer</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- My personal stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
+<!--INDEX PAGE-->
 <body>
+    <!--NAVIGATION BAR TO BE USED ACROSS ALL PAGES-->
+    <nav class="navbar navbar-light" style="background-color:rgb(237, 104, 68)">
+            <div class="container">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"style="color:white">Placeholder</a>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="color:white">Dropdown<span class="caret"></span></a>
+                            <ul class="dropdown-menu">    
+                                <li><a class="dropdown-item" href="#">Placeholder</a></li>
+                                <li><a class="dropdown-item" href="#">Placeholder</a></li>
+                                <li><a class="dropdown-item" href="#">Placeholder</a></li>
+                                <li><a class="dropdown-item" href="#">Placeholder</a></li>
+                                <li><a class="dropdown-item" href="#">Placeholder</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" style="color:white">About</a></li>
+                        <li><a href="#"style="color:white">Team</a></li>
+                        <li><a href="#"style="color:white">Github</a></li>
+                        <li><a href="#"style="color:white">Placeholder</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-<h1>test</h1>
+    <!--ROW 1: SUMMARY-->    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>THIS COLOR SCHEME IS HORRIBLE</h1>
+                <hr></hr>
+                <a href = "#"><img class="img-responsive shadow float_text_left" src = "#"></a>
+                <p>
+                    placeholder
+                </p>
+            </div>
+        </div>
+    </div>
 
-</body>
+    <!--ROW 2: WORKFLOW-->  
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>placeholder</h4>
+                <hr></hr>
+                <div class ="imgbox">
+                    <img class = "center-fit" src = "#">
+                </div><br/>
+            </div>
+        </div>
+    </div>
+    
+<!--FOOTER TO BE USED ACROSS ALL PAGES-->
+ <footer class="footer">
+        <!--FONT AWESOME REF-->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+            <!-- Footer Elements -->
+            <div class="container">
+                <br/>
+                    <div class="footer-copyright text-center py-3"><font color="white">2018</font><br/><br/>
+                        <div class="mb-5 flex-center">
+                            <!-- Notes: fa-2x doubles the icon size, and 'fa-fw' adds  spacing after the icon-->
+                            <!-- Github -->
+                            <a class="gi-ic" href = "#">
+                            <i class="fa fa-github fa-2x fa-fw" style="color:white"></i>
+                            </a>
+                            <!-- Twitter -->
+                            <a class="tw-ic" href = "#">
+                            <i class="fa fa-twitter fa-2x fa-fw" style="color:white"> </i>
+                            </a>
+                            <!--Linkedin -->
+                            <a class="li-ic" href = "#">
+                            <i class="fa fa-linkedin fa-2x fa-fw" style="color:white"> </i>
+                            </a>
+                            <!--Instagram -->
+                            <a class="ins-ic" href = "#">
+                            <i class="fa fa-instagram fa-2x fa-fw" style="color:white"> </i>
+                            </a>
+                        </div>
+                    <br/>
+                </div>
+            </div>
+    </footer>
 
+<!-- THE FOLLOWING IS REQUIRED FOR BOOTSTRAP INTERACTIVE COMPONENTS -EX- DROPDOWNS. RECOMMENDED BOTTOM PLACEMENT FOR FASTER LOAD TIME-->
+
+    <!-- jQuery Bootstrap's JavaScript plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
 </html>
