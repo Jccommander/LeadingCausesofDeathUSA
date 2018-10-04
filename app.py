@@ -61,7 +61,7 @@ def data():
 # #********************
 
 
-@app.route("/data/<year>")
+@app.route("/data/year=<year>")
 # CHOROPLETH: all states, single year, and cause of death
 def year(year):
     session = Session(engine)
@@ -84,7 +84,7 @@ def year(year):
     return jsonify(all_data)
 
 #@app.route("/data/<year>", defaults={"cause":None})
-@app.route("/data/<year>/<cause>")
+@app.route("/data/year=<year>/cause=<cause>")
 # CHOROPLETH: all states, single year, and cause of death
 def yearcause(year, cause):
     session = Session(engine)
@@ -106,7 +106,7 @@ def yearcause(year, cause):
 
     return jsonify(all_data)
 
-@app.route("/data/<year>/<state>")
+@app.route("/data/year=<year>/state=<state>")
 # CHOROPLETH: all states, single year, and cause of death
 def yearstate(year,state):
     session = Session(engine)
@@ -128,7 +128,7 @@ def yearstate(year,state):
 
     return jsonify(all_data)
 
-@app.route("/data/<state>")
+@app.route("/data/state=<state>")
 # CHOROPLETH: all states, single year, and cause of death
 def state(year,state):
     session = Session(engine)
@@ -150,7 +150,7 @@ def state(year,state):
 
     return jsonify(all_data)
 
-@app.route("/data/<start>/<end>/<state>")
+@app.route("/data/start=<start>/end=<end>/state=<state>")
 # CHOROPLETH: all states, single year, and cause of death
 def yearrangestate(start,end,state):
     session = Session(engine)
