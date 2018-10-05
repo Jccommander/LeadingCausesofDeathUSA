@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
+from initdb import create_db
 
 #################################################
 # Initialize Flask
@@ -32,6 +33,18 @@ Base = automap_base()
 Base.prepare(engine, reflect=True)
 # Save reference to each table
 deaths = Base.classes.cause_o_death
+
+@app.before_first_request
+def bfr():
+    create_db()
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/deaths.db'
+# # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
+#     db = SQLAlchemy(app)
+
+
+#     db.drop_all()
+
+    # create_db()
 
 @app.route("/")
 def index():
