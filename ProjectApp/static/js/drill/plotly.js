@@ -29,6 +29,19 @@ function buildLine(sample, boolObjects) {
     var all_causes = [alzheimer,cancer,CLRD,diabetes,heart_disease,influenza,
         kidney_disease,stroke,suicide,accidents];
 
+    var valsForTrace = [
+        {cause:"Alzheimer's disease", color:"#2ac4c4", name:"Alzheimer's Disease"},
+        {cause:"Cancer", color:"#808080", name:"Cancer"},
+        {cause:"CLRD", color:"#19a140", name:"CLRD"},
+        {cause:"Diabetes", color:"#0a4b82", name:"Diabetes"},
+        {cause:"Heart disease", color:"#a9424a", name:"Heart Disease"},
+        {cause:"Influenza and pneumonia", color:"#e89066", name:"Influenza & Pneumonia"},
+        {cause:"Kidney disease", color:"#afb507", name:"Kidney Disease"},
+        {cause:"Stroke", color:"#EE82EE", name:"Stroke"},
+        {cause:"Suicide", color:"#BC8F8F", name:"Suicide"},
+        {cause:"Unintentional injuries", color:"#846ac8", name:"Accidents"}
+    ];
+
     var used_causes = [];
 
     for(i = 0; i < all_causes.length; i++) {
@@ -43,20 +56,35 @@ function buildLine(sample, boolObjects) {
 
     used_causes.forEach(loopdata => {
 
+        console.log("this part of the function runs")
+
         var yearList = [];
         var deathList = [];
 
         loopdata.sort((a, b) => a.year - b.year);
 
+        var color;
+        var name;
+
         loopdata.forEach(object => {
             yearList.push(object.year);
             deathList.push(object.deaths);
+            valsForTrace.forEach(val_item => {
+                if(val_item.cause === object.cause) {
+                    color = val_item.color;
+                    name = val_item.name;
+                }
+            });
         });
 
         var trace = {
         x: yearList,
         y: deathList,
         mode: "lines+markers",
+        name: name,
+        marker: {
+            color: color
+        },
         label: yearList,
         type: "scatter"
         };
@@ -67,7 +95,7 @@ function buildLine(sample, boolObjects) {
 
         var layout = {
             height: 650,
-            width: 1250,
+            width: 950,
             title: 'Cause of Death by Year',
             xaxis: {title: 'Year'},
             yaxis: {title: 'Death Rate'}
@@ -76,40 +104,3 @@ function buildLine(sample, boolObjects) {
     // insert the HTML ID
     Plotly.newPlot('linechart', data, layout);
 };
-
-// 2
-function optionChanged(newCause) {
-  buildLine(newCause);
-}
-
-// ************************
-// duplicate in JC code?
-// ************************
-
-// // 3 to run on page load
-
-// function init() {
-//   var selector = d3.select("#ID HERE");
-//  // builds the dropdown menu
-//   d3.json("/causes").then((causeNames) => {
-//     causeNames.forEach((cause) => {
-//       selector
-//         .append("option")
-//         .text(cause)
-//         .property("value", cause);
-//         });
-//     // builds the initial chart with first item in json
-//     const firstSample = causeNames[0];
-//     buildCharts(firstSample);
-//   });
-// }
-//  // run
-// init();
-
-// // 4 resize charts when window size changes
-// function resize(){
-//   var rCause = d3.select("#selDataset").property("value");
-//   console.log("cause",rCause);
-//   buildCharts(rCause);
-// }
-// d3.select(window).on('resize', resize);

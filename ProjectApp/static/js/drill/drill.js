@@ -177,4 +177,20 @@ function onCheckboxer(object) {
     buildLine(sampleHolder, boolArray);
 };
 
+function removeChecks() {
+    d3.selectAll('input').property('checked',false);
+    boolArray.forEach(item => {
+        item.bool = false;
+    })
+    buildLine(sampleHolder, boolArray);
+}
+
+function returnChecks() {
+    d3.selectAll('input').property('checked',true);
+    boolArray.forEach(item => {
+        item.bool = true;
+    })
+    buildLine(sampleHolder, boolArray);
+}
+
 initializer();
