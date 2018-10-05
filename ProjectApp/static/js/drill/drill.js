@@ -143,7 +143,7 @@ var sampleHolder;
 // the desired Flask route call to retrieve all data to be injected into the functions
 function initializer(startYear = "1999", endYear = "2016", state = "Alabama") {
 
-    d3.json(`data/${startYear}/${endYear}/${state}`).then(sample => {
+    d3.json(`data/start=${startYear}/end=${endYear}/state=${state}`).then(sample => {
 
         // Populate the selectors for the drill page with the years and states
         drillOptionSelector();
