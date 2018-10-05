@@ -18,9 +18,6 @@ engine = create_engine('sqlite:///db/deaths.sqlite')
 
 def create_db():
     
-    # engine = create_engine('sqlite:///db/deaths.db')
-    # Base.metadata.drop_all(engine)
-    # drop_all(engine)
 # Create the Death class
     class Death(Base):
         __tablename__ = 'cause_o_death'
@@ -51,4 +48,3 @@ def create_db():
 # results = session.query(Death).filter(Death.year == 2003)
 # for result in results:
 #     print(result.state)
-create_db()

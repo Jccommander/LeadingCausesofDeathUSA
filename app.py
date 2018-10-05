@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
-from initdb import create_db
+from initdb import create_db, engine
 
 #################################################
 # Initialize Flask
@@ -19,14 +19,13 @@ from initdb import create_db
 app = Flask(__name__)
 
 # initialize db here
-# drop 
-# create from initdb.py
+
 
 #################################################
 # Database Setup
 #################################################
 
-engine = create_engine("sqlite:///db/deaths.db")
+# engine = create_engine("sqlite:///db/deaths.db")
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
