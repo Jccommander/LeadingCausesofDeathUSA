@@ -162,7 +162,7 @@ def state(year,state):
 
     return jsonify(all_data)
 
-@app.route("/data/<start>/<end>/<state>")
+@app.route("/data/start=<start>/end=<end>/<state>")
 # CHOROPLETH: all states, single year, and cause of death
 def yearrangestate(start,end,state):
     session = Session(engine)
