@@ -2,6 +2,24 @@ var jsonLink = "https://data.cdc.gov/api/views/bi63-dtpu/rows.json?accessType=DO
 
 var mapObject;
 
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    layer.bringToFront();
+
+}
+
+function resetHighlight(e) {
+    mapObject.resetStyle(e.target);
+}
+
 async function choroplethGenerator(year,cause) {
 
 // Execute the above dataUpdater function
@@ -9,7 +27,6 @@ async function choroplethGenerator(year,cause) {
 var result = await d3.json(jsonLink).then(function(response) {
 
     // Log the data key of the response so that it can be examined if desired
-    console.log(response.data);
   
     // For loop that loops through everything returned by the JSON
     for(var i = 0; i < response.data.length; i++) {
@@ -50,7 +67,12 @@ mapObject = L.choropleth(statesData, {
     },
 
     onEachFeature: function(feature, layer) {
-        layer.bindPopup(`To see in-depth analytics of this state <a href=drill/state=${feature.properties.name}>click here</a><br>`);
+        layer.bindPopup(`<strong>Death Rate for ${feature.properties.name}:</strong> ${feature.properties.density} deaths per 100,000<br>` + 
+            `To see in-depth analytics of this state <a href=drill/state=${feature.properties.name}>click here</a><br>`);
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+        });
       }
 
     });
