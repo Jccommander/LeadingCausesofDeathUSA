@@ -50,6 +50,10 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+@app.route("/map")
+def mapper():
+    return render_template("choropleth.html")
+
 @app.route("/data")
 def data():
     session = Session(engine)

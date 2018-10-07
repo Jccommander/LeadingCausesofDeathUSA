@@ -48,12 +48,15 @@ mapObject = L.choropleth(statesData, {
         weight: 1,
         fillOpacity: 0.8
     },
+
+    onEachFeature: function(feature, layer) {
+        layer.bindPopup(`To see in-depth analytics of this state <a href=drill/state=${feature.properties.name}>click here</a><br>`);
+      }
+
     });
-    console.log("I should run first")
+
   });
   
-    console.log("I should run second");
-    console.log(mapObject);
     return mapObject;
 
 };
