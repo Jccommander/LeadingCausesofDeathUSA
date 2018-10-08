@@ -13,6 +13,21 @@ html {
   text-align: center;
 }
 
+.homeBtn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+  color:blue;
+}
+
+.homeBtn:hover {
+  background-color: blue;
+  color: white;
+}
+
 /* CSS from the Leaflet-Choropleth documentation */
 .legend {
   padding: 6px 8px;
