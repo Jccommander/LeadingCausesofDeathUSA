@@ -43,7 +43,24 @@ Promise.all([item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11
     zoom: 4,
     layers: [mapLayer, overlayMaps.All_Causes]
   });
-    // Lastly the control is added, with only overlayMaps as its base layer to ensure that only one choropleth
+    // Control is added, with only overlayMaps as its base layer to ensure that only one choropleth
   // can be selected at a time
   L.control.layers(overlayMaps,null,{collapsed:false}).addTo(myMap);
+
+    // Set up the legend
+    var legend = L.control({ position: "topleft" });
+    legend.onAdd = function() {
+      var div = L.DomUtil.create("div", "info legend");
+  
+      // Add min & max
+      var legendInfo = "<form action='/'>" + "<input type=submit class='homeBtn' value='Return to Homepage'>";
+  
+      div.innerHTML = legendInfo;
+      
+      return div;
+    };
+  
+    // Adding legend to the map
+    legend.addTo(myMap);
+
 }).catch(console.error);
