@@ -43,8 +43,8 @@
             <a class="navbar-brand" href="index.html"style="color:white">Home</a>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right"></li>
-                    <li><a href="drill.html" style="color:white">Analysis</a></li>
-                    <li><a href="teampage.html"style="color:white">Team</a></li>
+                    <li><a href="/drill" style="color:white">Analysis</a></li>
+                    <li><a href="/teampage"style="color:white">Team</a></li>
                     </ul>
             </div>
             </div>
@@ -61,33 +61,65 @@
     <!--ROW 1: SUMMARY-->    
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12"  style = "
+                background-color: white;
+                padding-left: auto;
+                padding-top: 10px;
+                padding-right: auto;
+                padding-bottom: 0px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 15px;
+                margin-bottom: 0px"
+            }>
                 <h1>Visualize Healthcare Data</h1>
                 <hr>
-                <p style = "text-align: center"> <strong>Explore changes in top causes of death</strong><br/>
-                    Below is a choropleth map that allows for filtering over multiple parameters including year, state, and cause of death. 
-                    By clicking on the "Analysis" tab in the header, more detailed information is provided in drill-down visuals.
+                <p style = "text-align: center"> 
+                    <strong>Explore trends in top causes of death in the United States</strong><br/>
+                    Data is provided by the Centers for Disease Control's (CDC) and National Center for Health Statistics (NCHS)
+                    Interact with visualizations to filter data by year, state, and cause. 
+                    Discover more information 
                     Using this information will provide a clear picture of how the leading causes of death in the United States change over time.</p>
-                
-                <div class="mb-5 flex-center">
-                    <!-- Source JSON --> 
-                    <a class="ic" href = "https://data.cdc.gov/api/views/bi63-dtpu/rows.json?accessType=DOWNLOAD">
-                    <i class="fas fa-heartbeat fa-10x" style="color:black"> </i>
-                    </a>    
-
-                    <a class="ic" href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013">
+            </div>
+        </div>
+        <div class="row">     
+            <div class="col-md-4">
+                <a class="ic" href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013">
+                    <!-- <i class="fa fa-heartbeat fa-large fa-fw" > </i> -->
+                <i class="fas fa-file-medical-alt fa-10x" style="display:inline-block; text-align:center"></i>
+                </a>
+                <br/><p style = "text-align: center">Data</p>
+            </div>   
+            <div class="col-md-4">
+                <!-- Source JSON --> 
+                <a class="ic" href = "https://data.cdc.gov/api/views/bi63-dtpu/rows.json?accessType=DOWNLOAD">
+                <i class="fas fa-heartbeat fa-10x" style="display:inline-block; text-align:center"> </i>
+                </a>
+                <br/><p style = "text-align: center">NCHS</p>
+            </div>
+            
+            <div class="col-md-4">
+                    <a class="ic" href = "#">
                         <!-- <i class="fa fa-heartbeat fa-large fa-fw" > </i> -->
-                        <i class="fab fa-github fa-10x" style="color:white"></i>
+                    <i class="fas fa-user-md fa-10x" style="display:inline-block; text-align:center"></i>
                     </a>
+                    <br/><p style = "text-align: center">Help</p>
                 </div>
-                    <a href="#map" class="btn btn-circle js-scroll-trigger">
-                            <i class="fa fa-angle-double-down animated"></i></a>
+        </div>
+            <div class="row"> 
+                <div class="col-md-12" style = "
+                background-color: white;
+                padding-left: auto;
+                padding-top: 0px;
+                padding-right: auto;
+                padding-bottom: 15px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0px;
+                margin-bottom: 20px">
                 </div>
             </div>
-        </div>  
     </div>
-
-    
 
     <!-- ROW 2: Choropleth Object -->
     <div class="container">
@@ -108,9 +140,9 @@
                 <h1> Learn from the CDC & NCHS</h1>
                 <hr>
                 <a href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013"><img class="img-responsive shadow float_text_left" src = "../static/images/dhhsseal.png"></a>
+                <p style = "text-align: center"> <strong>Understand the data further.</strong></p>
                 <p>
-                <strong>This dataset is from the Centers for Disease Control's (CDC) and National Center for Health Statistics (NCHS)</strong> 
-                It presents the age-adjusted death rates for the ten leading causes of death in the United States 
+                It presents various information about the age-adjusted death rates for the ten leading causes of death in the United States 
                 beginning in 1999. Data are based on information from all resident death certificates filed in the 50 states 
                 and the District of Columbia using demographic and medical characteristics.
                 Causes of death are classified by the International Classification of Diseases, Tenth Revision (ICD–10) and  based on the underlying cause. 
@@ -126,7 +158,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
     <div class="container">
         <br/>
-        <div class="footer-copyright text-center py-3"><font color="white">© 2018 Copyright: Jeffrey Box, John Commander, John Giglio, Bill McGill, Luke Williams</font><br/><br/>
+        <div class="footer-copyright text-center py-3"><font color="white">© 2018 Copyright: Jeffrey Box, John Commander, John Giglio, Bill Magill, & Luke Williams</font><br/><br/>
             <div class="mb-5 flex-center">
                 <!-- Notes: fa-2x doubles the icon size, and 'fa-fw' adds  spacing after the icon-->
                 <!-- Github -->
