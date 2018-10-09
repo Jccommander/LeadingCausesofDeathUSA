@@ -20,8 +20,8 @@ img.float_text_left {
   float: left;
   clear: none;
   margin: 15px;
-  max-width: 5%;
-  max-height: 5%;
+  max-width: 25%;
+  max-height: 25%;
   display: inline-block;
   position: relative;
 }
@@ -44,13 +44,18 @@ h1,h4 {
 body {
   background-color: rgb(221, 223, 231)
 }
+
+.col-md-2, .mb-3, .col-md-8, .col-12, .mt-5 {
+  text-align: center;
+}
+
 .footer
 {
-    background-color:rgb(7, 18, 82);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    clear:both;
+  background-color:rgb(7, 18, 82);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  clear:both;
 }
 
 /* STYLING FOR CONTAINERS */
@@ -84,6 +89,10 @@ ul.nav a:hover {
 .icon-bar {
   background-color:white;
   color: white;
+}
+.btn, .btn-circle, .js-scroll-trigger{
+  color: black;
+  font-size:36px;
 }
 
 /* STYLING FOR THE PARALLAX */
