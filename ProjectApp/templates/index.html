@@ -5,13 +5,18 @@
 <head>
     <meta charset="utf-8">
     <title>Health Data Analyzer</title>
+    
     <!-- d3 JavaScript -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+
     <!-- Leaflet-Choropleth JavaScript -->
     <script type="text/javascript" src="../static/js/choropleth/choropleth.js"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- My personal stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Personal stylesheets -->
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/choroplethStyle.css">
 
@@ -47,10 +52,9 @@
 
         <div class="hero text-center">
             <h1>Leading Causes of Death</h1>
-            <p>NCHS Age-Adjusted Death Rates in the US over Time</p>
+            <p>Top Ten NCHS rates in the US over Time</p>
             <a href="#map" class="btn btn-circle js-scroll-trigger">
-                <i class="fa fa-angle-double-down animated">
-                </i>
+                <i class="fa fa-angle-double-down animated"></i>
             </a>
         </div>
 
@@ -58,48 +62,59 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>This App Visualizes Healthcare Data
-                </h1>
+                <h1>Visualize Healthcare Data</h1>
                 <hr>
-                <p> 
-                </p>
+                <p style = "text-align: center"> <strong>Explore changes in top causes of death</strong><br/>
+                    Below is a choropleth map that allows for filtering over multiple parameters including year, state, and cause of death. 
+                    By clicking on the "Analysis" tab in the header, more detailed information is provided in drill-down visuals.
+                    Using this information will provide a clear picture of how the leading causes of death in the United States change over time.</p>
+                
+                <div class="mb-5 flex-center">
+                    <!-- Source JSON --> 
+                    <a class="ic" href = "https://data.cdc.gov/api/views/bi63-dtpu/rows.json?accessType=DOWNLOAD">
+                    <i class="fas fa-heartbeat fa-10x" style="color:black"> </i>
+                    </a>    
+
+                    <a class="ic" href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013">
+                        <!-- <i class="fa fa-heartbeat fa-large fa-fw" > </i> -->
+                        <i class="fab fa-github fa-10x" style="color:white"></i>
+                    </a>
+                </div>
+                    <a href="#map" class="btn btn-circle js-scroll-trigger">
+                            <i class="fa fa-angle-double-down animated"></i></a>
+                </div>
             </div>
-        </div>
+        </div>  
     </div>
+
+    
 
     <!-- ROW 2: Choropleth Object -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                    <p>Choropleth goes here</p>
+                <h1>Explore the Data</h1>
+                <hr>
+                <p style = "text-align: center"> PLACEHOLDER: Choropleth goes in: <strong>div id="map"</strong> here</p>
                 <div id="map"></div>
             </div>
         </div>
     </div>
-        
+
     <!--ROW 3: WORKFLOW-->  
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1> CDC & NCHS
-                </h1>
+                <h1> Learn from the CDC & NCHS</h1>
                 <hr>
                 <a href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013"><img class="img-responsive shadow float_text_left" src = "../static/images/dhhsseal.png"></a>
                 <p>
-                This dataset from the Centers for Disease Control's (CDC) and National Center for Health Statistics (NCHS) 
-                presents the age-adjusted death rates for the 10 leading causes of death in the United States 
+                <strong>This dataset is from the Centers for Disease Control's (CDC) and National Center for Health Statistics (NCHS)</strong> 
+                It presents the age-adjusted death rates for the ten leading causes of death in the United States 
                 beginning in 1999. Data are based on information from all resident death certificates filed in the 50 states 
-                and the District of Columbia using demographic and medical characteristics. Age-adjusted death rates 
-                (per 100,000 population) are based on the 2000 U.S. standard population. 
-                Populations used for computing death rates after 2010 are postcensal estimates based on the 2010 census, 
-                estimated as of July 1, 2010. Rates for census years are based on populations enumerated in the corresponding 
-                censuses. Rates for non-census years before 2010 are revised using updated intercensal population estimates and 
-                may differ from rates previously published. Causes of death classified by the 
-                International Classification of Diseases, Tenth Revision (ICD–10) are 
-                ranked according to the number of deaths assigned to rankable causes. 
-                Cause of death statistics are based on the underlying cause of death. 
-                SOURCES CDC/NCHS, National Vital Statistics System, mortality data (see http://www.cdc.gov/nchs/deaths.htm); 
-                and CDC WONDER (see http://wonder.cdc.gov).
+                and the District of Columbia using demographic and medical characteristics.
+                Causes of death are classified by the International Classification of Diseases, Tenth Revision (ICD–10) and  based on the underlying cause. 
+                For more information, <a href="https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013">visit NCHS</a>.
                 </p>
             </div>
         </div>
@@ -107,35 +122,25 @@
     
 <!--FOOTER TO BE USED ACROSS ALL PAGES-->
 <footer class="footer">
-        <!--FONT AWESOME REF-->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-            <!-- Footer Elements -->
-            <div class="container">
-                <br/>
-                    <div class="footer-copyright text-center py-3"><font color="white">© 2018 Copyright: Jeffrey Box, John Commander, John Giglio, Bill McGill, Luke Williams</font><br/><br/>
-                        <div class="mb-5 flex-center">
-                            <!-- Notes: fa-2x doubles the icon size, and 'fa-fw' adds  spacing after the icon-->
-                            <!-- Github -->
-                            <a class="gi-ic" href = "https://github.com/Jccommander/Project2-JJJB">
-                            <i class="fa fa-github fa-2x fa-fw" style="color:white"></i>
-                            </a>
-                            <!-- GT --> 
-                            <a class="li-ic" href = "https://bootcamp.pe.gatech.edu/data/lp1/?s=Google-Unbranded&dki=Data%20Science&utm_cost=0&trkid=V3ADW427502_53882828873_aud-489106722912:kwd-304086169812__253238998067_g_c__&mkwid=TCVWe2l0_dc&pkw=%2Bdata%20%2Bscientist%20%2Bsalary&pcrid=253238998067&pmt=b&utm_source=google&utm_medium=cpc&utm_campaign=%5BS%5D+Data+-+Data+Sciencet+-+&utm_term=%2Bdata%20%2Bscientist%20%2Bsalary&utm_content=253238998067&s=google&k=%2Bdata%20%2Bscientist%20%2Bsalary&gclid=CjwKCAjwo_HdBRBjEiwAiPPXpI5Hd_IC0S2YVkhnL3viYTKye8ogabLdtyRBCvIY-Nx1_kLWvOD9whoC8LsQAvD_BwE">
-                            <i class="fa fa-certificate fa-2x fa-fw" style="color:white"> </i>
-                            </a>
-                            <!-- CDC --> 
-                            <a class="ic" href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013">
-                            <i class="fa fa-heartbeat fa-2x fa-fw" style="color:white"> </i>
-                            </a>
-                            <!-- CDC --> 
-                            <a class="ic" href = "https://data.cdc.gov/api/views/bi63-dtpu/rows.json?accessType=DOWNLOAD">
-                            <i class="fa fa-file fa-2x fa-fw" style="color:white"> </i>
-                            </a>
-                        </div>
-                    <br/>
-                </div>
+    <!-- Footer Elements -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <div class="container">
+        <br/>
+        <div class="footer-copyright text-center py-3"><font color="white">© 2018 Copyright: Jeffrey Box, John Commander, John Giglio, Bill McGill, Luke Williams</font><br/><br/>
+            <div class="mb-5 flex-center">
+                <!-- Notes: fa-2x doubles the icon size, and 'fa-fw' adds  spacing after the icon-->
+                <!-- Github -->
+                <a class="ic" href = "https://github.com/Jccommander/Project2-JJJB">
+                    <i class="fab fa-github fa-3x" style="color:white"></i></a>
+                <!-- 
+                <a class="ic" href = "https://bootcamp.pe.gatech.edu/data/lp1/?s=Google-Unbranded&dki=Data%20Science&utm_cost=0&trkid=V3ADW427502_53882828873_aud-489106722912:kwd-304086169812__253238998067_g_c__&mkwid=TCVWe2l0_dc&pkw=%2Bdata%20%2Bscientist%20%2Bsalary&pcrid=253238998067&pmt=b&utm_source=google&utm_medium=cpc&utm_campaign=%5BS%5D+Data+-+Data+Sciencet+-+&utm_term=%2Bdata%20%2Bscientist%20%2Bsalary&utm_content=253238998067&s=google&k=%2Bdata%20%2Bscientist%20%2Bsalary&gclid=CjwKCAjwo_HdBRBjEiwAiPPXpI5Hd_IC0S2YVkhnL3viYTKye8ogabLdtyRBCvIY-Nx1_kLWvOD9whoC8LsQAvD_BwE">
+                <i class="fa fa-certificate fa-2x fa-fw" style="color:white"> </i>
+                </a>GT --> 
             </div>
-    </footer>
+            <br/>
+        </div>
+    </div>
+</footer>
 <!-- THE FOLLOWING IS REQUIRED FOR BOOTSTRAP INTERACTIVE COMPONENTS -EX- DROPDOWNS. RECOMMENDED BOTTOM PLACEMENT FOR FASTER LOAD TIME-->
 
     <!-- jQuery Bootstrap's JavaScript plugins -->
