@@ -1,27 +1,21 @@
 /* STYLING FOR IMAGES */
 
+/* STYLING FOR IMAGES */
 .imgbox {
- display: grid;
- height: 100%; 
-}
-.center-fit {
-  max-width: 30%;
-  max-height: 100vh;
-  padding-left: auto;
-  padding-top: 5px;
-  padding-right: auto;
-  padding-bottom: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
-  margin-bottom: 5px
+  display: grid;
+  height: 100%; 
  }
+ .center-fit {
+   max-width: 100%;
+   max-height: 100vh;
+  }
+  
 img.float_text_left {
   float: left;
   clear: none;
   margin: 15px;
-  max-width: 5%;
-  max-height: 5%;
+  max-width: 25%;
+  max-height: 25%;
   display: inline-block;
   position: relative;
 }
@@ -31,6 +25,9 @@ img.float_text_left {
 html, body {
   height: 100vh;
   width: 100vw;
+}
+p {
+  font-size: 20px;
 }
 .wrapper {
   min-height: 100%;
@@ -44,13 +41,18 @@ h1,h4 {
 body {
   background-color: rgb(221, 223, 231)
 }
+
+.col-md-2, .mb-3, .col-md-8, .col-12, .mt-5 {
+  text-align: center;
+}
+
 .footer
 {
-    background-color:rgb(7, 18, 82);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    clear:both;
+  background-color:rgb(7, 18, 82);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  clear:both;
 }
 
 /* STYLING FOR CONTAINERS */
@@ -84,6 +86,12 @@ ul.nav a:hover {
 .icon-bar {
   background-color:white;
   color: white;
+}
+.btn, .btn-circle, .js-scroll-trigger{
+  color: black;
+  align-content: center;
+  text-align: center;
+  font-size:36px;
 }
 
 /* STYLING FOR THE PARALLAX */
