@@ -56,23 +56,35 @@ body {
 }
 
 /* STYLING FOR CONTAINERS */
-.col-md-12 {
+  .col-md-4 {
   background-color: white;
   padding-left: auto;
-  padding-top: 10px;
+  padding-top: 0px;
   padding-right: auto;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
-  margin-bottom: 15px
-  }
+  margin-top: 0px;
+  margin-bottom: 0px
+  } 
+
+  .col-md-12 {
+    background-color: white;
+    padding-left: auto;
+    padding-top: 0px;
+    padding-right: auto;
+    padding-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px"
+} 
 
 /* STYLING FOR THE NAVBAR*/
 ul.nav a:hover { 
   color:gray !important; 
 }
-.navbar-nav > li{
+.navbar-nav {
   padding-left:auto;
   padding-right:10px;
   margin-left:auto;
@@ -87,12 +99,7 @@ ul.nav a:hover {
   background-color:white;
   color: white;
 }
-.btn, .btn-circle, .js-scroll-trigger{
-  color: black;
-  align-content: center;
-  text-align: center;
-  font-size:36px;
-}
+
 
 /* STYLING FOR THE PARALLAX */
 .hero {
@@ -110,7 +117,7 @@ ul.nav a:hover {
 }
 
 .hero h1 {
-  margin-top: 100px;
+  margin-top: 20px;
   font-size: 0.1rem;
   animation: title 1.2s forwards linear;
 }
@@ -120,6 +127,20 @@ ul.nav a:hover {
   opacity: 0;
   animation: subtitle 1.2s forwards linear;
   animation-delay: 1.2s;
+}
+
+/* styling for font awesome icons */
+
+.fas, .fa {
+  display: inline-block;
+  width: 100%;
+}
+
+.btn, .btn-circle, .js-scroll-trigger{
+  color: black;
+  align-content: center;
+  text-align: center;
+  font-size: 36px;
 }
 
 /* media queries & keygrame Aninations ?? */
