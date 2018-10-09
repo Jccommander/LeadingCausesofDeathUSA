@@ -54,6 +54,10 @@ def index():
 def mapper():
     return render_template("choropleth.html")
 
+@app.route("/drill")
+def driller():
+    return render_template("drill.html")
+
 @app.route("/data")
 def data():
     session = Session(engine)
