@@ -21,11 +21,16 @@ html {
   cursor: pointer;
   display: inline-block;
   color:blue;
+  width:100%;
 }
 
 .homeBtn:hover {
   background-color: blue;
   color: white;
+}
+
+.homeSelector {
+  width:100%;
 }
 
 /* CSS from the Leaflet-Choropleth documentation */

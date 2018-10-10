@@ -15,7 +15,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- My personal stylesheet -->
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.js') }}">
 
     
 
@@ -46,14 +46,26 @@
 
     <!-- PAGE SPECIFIC ELEMENTS BELOW -->
 
+<!-- Hidden html elements rendered by flask for grabbing year & state data to populate the js initializer with -->
+
+<div id="hiddenDrillStart" value="{{ dict.start }}"></div>
+<div id="hiddenDrillEnd" value="{{ dict.end }}"></div>
+<div id="hiddenDrillState" value="{{ dict.state }}"></div>
+
 <!-- Container for the Metadata panel -->
     
     <div class="container">
         <div class="row">
              <div class="col-md-2">
                 <div class="well">
-                    <h5>SELECT test:</h5>
-                    <select id="selDataset"></select>
+                    <h5>Select a Start Year:</h5>
+                    <select id="selStartYear"></select>
+                    <h5>Select an End Year:</h5>
+                    <select id="selEndYear"></select>
+                    <h5>Select a State:</h5>
+                    <select id="selState"></select>
+                    <br><br>
+                    <input type=submit class='btn btn-primary' value='Filter Data' onclick=refreshDrillPage()>
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">

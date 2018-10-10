@@ -6,36 +6,35 @@
     accessToken: API_KEY
   });
 
-  // Create an initiator function for the map, so that the map can be initialized after all json calls
-  // are completed.
-  function initMap(mapLayer) {
+  var d3CraftedURL = `http://127.0.0.1:5000/map/year=1999`;
 
-    // The initializing map layer is then added, along with base layers
-    var myMap = L.map("map", {
-      center: [37.8, -96],
-      zoom: 4,
-      layers: [mapLayer, overlayMaps.All_Causes]
-    });
-    
-    // Lastly the control is added, with only overlayMaps as its base layer to ensure that only one choropleth
-    // can be selected at a time
-    L.control.layers(overlayMaps,null,{collapsed:false}).addTo(myMap);
-  
+  function updateURL(value) {
+    d3CraftedURL = `http://127.0.0.1:5000/map/year=${value}`;
+    console.log(d3CraftedURL);
   };
 
+  function refreshPage() {
+    window.location.assign(d3CraftedURL);
+  }
+
+  // Use D3 to select the hidden element in the choropleth html to find the specific year we want to plug
+  // Into the choropleth
+
+  var specificYear = d3.select("#hiddenEl").attr("value");
+  
   var overlayMaps = {}
 
-  var item1 = choroplethGenerator("2016","All causes").then((result) => {overlayMaps.All_Causes=result});
-  var item2 = choroplethGenerator("2016","Alzheimer's disease").then((result) => {overlayMaps.Alzheimers=result});
-  var item3 = choroplethGenerator("2016","Cancer").then((result) => {overlayMaps.Cancer=result});
-  var item4 = choroplethGenerator("2016","CLRD").then((result) => {overlayMaps.CLRD=result});
-  var item5 = choroplethGenerator("2016","Diabetes").then((result) => {overlayMaps.Diabetes=result});
-  var item6 = choroplethGenerator("2016","Heart disease").then((result) => {overlayMaps.Heart_Disease=result});
-  var item7 = choroplethGenerator("2016","Influenza and pneumonia").then((result) => {overlayMaps.Influenza_and_Pneumonia=result});
-  var item8 = choroplethGenerator("2016","Kidney disease").then((result) => {overlayMaps.Kidney_Disease=result});
-  var item9 = choroplethGenerator("2016","Stroke").then((result) => {overlayMaps.Stroke=result});
-  var item10 = choroplethGenerator("2016","Suicide").then((result) => {overlayMaps.Suicide=result});
-  var item11 = choroplethGenerator("2016","Unintentional injuries").then((result) => {overlayMaps.Accidents=result});
+  var item1 = choroplethGenerator(specificYear,"All causes").then((result) => {overlayMaps.All_Causes=result});
+  var item2 = choroplethGenerator(specificYear,"Alzheimer's disease").then((result) => {overlayMaps.Alzheimers=result});
+  var item3 = choroplethGenerator(specificYear,"Cancer").then((result) => {overlayMaps.Cancer=result});
+  var item4 = choroplethGenerator(specificYear,"CLRD").then((result) => {overlayMaps.CLRD=result});
+  var item5 = choroplethGenerator(specificYear,"Diabetes").then((result) => {overlayMaps.Diabetes=result});
+  var item6 = choroplethGenerator(specificYear,"Heart disease").then((result) => {overlayMaps.Heart_Disease=result});
+  var item7 = choroplethGenerator(specificYear,"Influenza and pneumonia").then((result) => {overlayMaps.Influenza_and_Pneumonia=result});
+  var item8 = choroplethGenerator(specificYear,"Kidney disease").then((result) => {overlayMaps.Kidney_Disease=result});
+  var item9 = choroplethGenerator(specificYear,"Stroke").then((result) => {overlayMaps.Stroke=result});
+  var item10 = choroplethGenerator(specificYear,"Suicide").then((result) => {overlayMaps.Suicide=result});
+  var item11 = choroplethGenerator(specificYear,"Unintentional injuries").then((result) => {overlayMaps.Accidents=result});
 
 Promise.all([item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11]).then(function() {
   var myMap = L.map("map", {
@@ -52,8 +51,29 @@ Promise.all([item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11
     legend.onAdd = function() {
       var div = L.DomUtil.create("div", "info legend");
   
-      // Add min & max
-      var legendInfo = "<form action='/'>" + "<input type=submit class='homeBtn' value='Return to Homepage'>";
+      var legendInfo = "<form action='/'>" + "<input type=submit class='homeBtn' value='Return to Homepage'> </form>"
+      + `<p>Current Year: ${specificYear}</p>`
+      + "<p>See Data For a Different Year:</p>"
+      + "<select id='yearSelector' class='homeSelector' onchange='updateURL(this.value)'>" +
+      "<option value='1999'>1999</option>" +
+      "<option value='2000'>2000</option>" +
+      "<option value='2001'>2001</option>" +
+      "<option value='2002'>2002</option>" +
+      "<option value='2003'>2003</option>" +
+      "<option value='2004'>2004</option>" +
+      "<option value='2005'>2005</option>" +
+      "<option value='2006'>2006</option>" +
+      "<option value='2007'>2007</option>" +
+      "<option value='2008'>2008</option>" +
+      "<option value='2009'>2009</option>" +
+      "<option value='2010'>2010</option>" +
+      "<option value='2011'>2011</option>" +
+      "<option value='2012'>2012</option>" +
+      "<option value='2013'>2013</option>" +
+      "<option value='2014'>2014</option>" +
+      "<option value='2015'>2015</option>" +
+      "<option value='2016'>2016</option>" + "</select>" +
+      "<br><br><input type=submit class='homeBtn' value='Select New Year' onclick=refreshPage()>";
   
       div.innerHTML = legendInfo;
       
