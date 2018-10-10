@@ -100,7 +100,8 @@ function drillOptionSelector() {
             .text(`${state}`);
     });
 
-}
+};
+
 
 // Create a function that takes in the year range and appends a number of option tags to the selector
 // element to ensure that only relevant years are available for selection in the Tree Map year selector
@@ -156,7 +157,8 @@ function initializer(startYear = "1999", endYear = "2016", state = "Alabama") {
 
         // @TODO:
         // Add the Tree Map function, using whatever library we intend to that generates the tree map
-
+        // plantTree(sample, startYear, endYear, state);
+        drawChart(sample, function() {console.log('finished callback')});
         // Populate the tree map selector with all years returned
         treeMapOptionSelector(startYear,endYear);
 
