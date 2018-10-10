@@ -3,9 +3,9 @@
     // google.charts.setOnLoadCallback(drawChart);
     function drawChart(sample, callback) {
         console.log(sample);
-        var treeData = [['Location','Parent','Deaths'],
-                        ['Global',null,0]];
-
+        var treeData = [['Cause','Parent','Deaths','Death Rate'],
+                        ['All Years',null,0,0]];
+        var allCauses = sample.filter(item => item.cause == "All causes")
         var alzheimer = sample.filter(item => item.cause === "Alzheimer's disease");
         var cancer = sample.filter(item => item.cause === "Cancer");
         var CLRD = sample.filter(item => item.cause === "CLRD");
@@ -19,21 +19,27 @@
         
         var just_causes = [alzheimer,cancer,CLRD,diabetes,heart_disease,influenza,
             kidney_disease,stroke,suicide,accidents];
+        
+        allCauses.forEach((year) =>{
+            treeData.push([year.year, 'All Years',0, 0])
+        });
 
         just_causes.forEach((cause) => {
             console.log(cause);
-            var deaths = cause.map(year => year.deaths);
+            // var deaths = cause.map(year => year.deaths);
     
-            var average = Math.round(math.mean(deaths));
-    
-            const add = (a, b) => a + b
-            var death_sum = deaths.reduce(add)
-    
-            treeData.push([
-                cause[0].cause,
-                'Global',
-                death_sum
-             ]);
+            // const add = (a, b) => a + b
+            // var death_sum = deaths.reduce(add)
+            cause.forEach((year) =>{
+                treeData.push([
+                    year.cause+" "+year.year,
+                    year.year,
+                    year.deaths,
+                    year.death_rate
+                 ]);
+
+            })
+
             });
 
 
@@ -45,13 +51,25 @@
         tree = new google.visualization.TreeMap(document.getElementById('tree'));
 
         tree.draw(data, {
-          minColor: '#f00',
-          midColor: '#ddd',
-          maxColor: '#0d0',
+            minColor: '#ffff00',
+            midColor: '#ff9933',
+            maxColor: '#ff0000',        
           headerHeight: 15,
           fontColor: 'black',
-          showScale: true
+          showScale: false,
+          generateTooltip: showFullTooltip
         });
+
+        function showFullTooltip(row, size, value) {
+            return '<div style="background:#99bbff; padding:10px; border-style:solid">' +
+                   '<span style="font-family:Courier"><b>' + data.getValue(row, 0) +
+                   '</b>, ' + data.getValue(row, 1) +'</span><br>' +
+               data.getColumnLabel(2) +
+                   ': ' + size + '<br>' +
+               data.getColumnLabel(3) + ': ' + value + ' </div>';
+          }
+        
+
         callback();
       };
       
