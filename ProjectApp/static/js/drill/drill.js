@@ -3,11 +3,52 @@
 // to the resulting numbers to make them easier to read
 var nf = new Intl.NumberFormat();
 
+// Use D3 to select the hidden html element containing the desired state to display first
+var initialStartYear = d3.select("#hiddenDrillStart").attr("value");
+var initialEndYear = d3.select("#hiddenDrillEnd").attr("value");
+var initialState = d3.select("#hiddenDrillState").attr("value");
+
+var selectorStartYear = d3.select("#selStartYear");
+var selectorEndYear = d3.select("#selEndYear");
+var selectorState = d3.select("#selState");
+
+// Create a set of variables to hold the start year, end year and state variables on changes to dropdowns
+
+var currentStartYear = initialStartYear;
+var currentEndYear = initialEndYear;
+var currentState = initialState;
+
+// Create the functions to run if the dropdown menus are changed in order to build the URL for changing
+// the year range or state
+
+selectorStartYear.on("change", function() {
+    var value = d3.event.target.value;
+    currentStartYear = value;
+    console.log(currentStartYear);
+});
+
+selectorEndYear.on("change", function() {
+    var value = d3.event.target.value;
+    currentEndYear = value;
+    console.log(currentEndYear);
+});
+
+selectorState.on("change", function() {
+    var value = d3.event.target.value;
+    currentState = value;
+    console.log(currentState);
+});
+
+// Create a click function that builds a page url and then refreshes the page to that url
+
+function refreshDrillPage() {
+    var queryURL = `http://127.0.0.1:5000/drill/start=${currentStartYear}/end=${currentEndYear}/state=${currentState}`;
+    window.location.assign(queryURL);
+};
+
 // Set function to populate the metadata section with relevant information
 
 function buildMeta(sample, startYear, endYear, state) {
-
-    console.log(sample);
 
     var metaPanel = d3.select("#sample-metadata");
 
@@ -85,9 +126,17 @@ function drillOptionSelector() {
             .attr("value",`${year}`)
             .text(`${year}`);
 
-        endSelector.append("option")
-            .attr("value",`${year}`)
-            .text(`${year}`);
+        if (year === 2016) {
+            endSelector.append("option")
+                .attr("value",`${year}`)
+                .property("selected",true)
+                .text(`${year}`);
+        }
+        else {
+            endSelector.append("option")
+                .attr("value",`${year}`)
+                .text(`${year}`);
+        }
     });
 
     // Use array of states as strings to loop through and populate the state selector dropdown
@@ -95,35 +144,25 @@ function drillOptionSelector() {
     var stateArray = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
 
     stateArray.forEach(state => {
-        stateSelector.append("option")
-            .attr("value",`${state}`)
-            .text(`${state}`);
+        if (state === "District of Columbia") {
+            var addedState = stateSelector.append("option")
+                .attr("value",`${state}`)
+                .attr("onchange","newState(this.value)")
+                .text("Wash. D.C.")
+        }
+        else {
+            var addedState = stateSelector.append("option")
+                .attr("value",`${state}`)
+                .attr("onchange","newState(this.value)")
+                .text(`${state}`);
+        }
+        if(state === initialState) {
+            addedState.property("selected",true);
+        }
     });
 
 };
 
-
-// Create a function that takes in the year range and appends a number of option tags to the selector
-// element to ensure that only relevant years are available for selection in the Tree Map year selector
-function treeMapOptionSelector(startYear = "1999", endYear = "2016") {
-
-    var selector = d3.select("#selDataset");
-
-    var numericStart = +startYear;
-    var numericEnd = +endYear;
-
-    var yearArray = [];
-    for (var i = numericStart; i <= numericEnd; i++) {
-        yearArray.push(i);
-    }
-
-    yearArray.forEach(year => {
-        selector.append("option")
-            .attr("value",`${year}`)
-            .text(`${year}`)
-    });
-
-};
 
 // Create a predifined boolean array for detecting which traces in the line plotly should be generated
 var boolArray = [
@@ -144,7 +183,7 @@ var sampleHolder;
 // the desired Flask route call to retrieve all data to be injected into the functions
 function initializer(startYear = "1999", endYear = "2016", state = "Alabama") {
 
-    d3.json(`data/start=${startYear}/end=${endYear}/state=${state}`).then(sample => {
+    d3.json(`http://127.0.0.1:5000/data/start=${startYear}/end=${endYear}/state=${state}`).then(sample => {
 
         // Populate the selectors for the drill page with the years and states
         drillOptionSelector();
@@ -160,7 +199,6 @@ function initializer(startYear = "1999", endYear = "2016", state = "Alabama") {
         // plantTree(sample, startYear, endYear, state);
         drawChart(sample, function() {console.log('finished callback')});
         // Populate the tree map selector with all years returned
-        treeMapOptionSelector(startYear,endYear);
 
         // Save sample outside of the json call
 
@@ -170,7 +208,6 @@ function initializer(startYear = "1999", endYear = "2016", state = "Alabama") {
 };
 
 function onCheckboxer(object) {
-    console.log(object);
     boolArray.forEach(item => {
         if(item.cause === object.value) {
             item.bool = object.checked;
@@ -195,4 +232,4 @@ function returnChecks() {
     buildLine(sampleHolder, boolArray);
 }
 
-initializer();
+initializer(initialStartYear,initialEndYear,initialState);
