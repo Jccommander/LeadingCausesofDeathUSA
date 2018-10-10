@@ -8,10 +8,17 @@
 
     <!-- Math-JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- My personal stylesheet -->
     <link rel="stylesheet" href="static/css/style.css">
+
+    
+
 </head>
 
 <!--INDEX PAGE-->
@@ -55,10 +62,13 @@
                     <div id="sample-metadata" class="panel-body"></div>
                 </div>
             </div>
+            <div class="col-md-10">
+                <!-- Container for the tree map -->
+                <div id='tree' style="width: 900px; height: 500px;"></div>
+            </div>
         </div>
     
 
-<!-- Container for the tree map -->
 
 <!-- Container for the line chart -->
     <div class="row">
@@ -111,8 +121,13 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="{{ url_for('static', filename='js/drill/plotly.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/drill/tree.js') }}"></script>
     <script src="{{ url_for('static', filename='js/drill/drill.js') }}"></script>
+
+
+
     </body>
 </html>
