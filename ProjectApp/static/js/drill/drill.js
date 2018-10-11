@@ -42,8 +42,14 @@ selectorState.on("change", function() {
 // Create a click function that builds a page url and then refreshes the page to that url
 
 function refreshDrillPage() {
+    if (parseInt(currentEndYear) < parseInt(currentStartYear)) {
+        alert("Error: Start / End year range is invalid, please ensure that the starting year is less than " +
+        "the ending year.")
+    }
+    else {
     var queryURL = `http://127.0.0.1:5000/drill/start=${currentStartYear}/end=${currentEndYear}/state=${currentState}`;
     window.location.assign(queryURL);
+    }
 };
 
 // Set function to populate the metadata section with relevant information
@@ -122,11 +128,19 @@ function drillOptionSelector() {
     }
 
     yearArray.forEach(year => {
-        startSelector.append("option")
-            .attr("value",`${year}`)
-            .text(`${year}`);
+        if (year === parseInt(initialStartYear)) {
+            startSelector.append("option")
+                .attr("value",`${year}`)
+                .property("selected",true)
+                .text(`${year}`);
+        }
+        else {
+            startSelector.append("option")
+                .attr("value",`${year}`)
+                .text(`${year}`);
+        }
 
-        if (year === 2016) {
+        if (year === parseInt(initialEndYear)) {
             endSelector.append("option")
                 .attr("value",`${year}`)
                 .property("selected",true)
