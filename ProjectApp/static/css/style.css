@@ -82,7 +82,19 @@ body {
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 20px"
-} 
+}
+
+  .col-md-6 {
+  background-color: white;
+  padding-left: auto;
+  padding-top: 0px;
+  padding-right: auto;
+  padding-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px
+  } 
 
 /* STYLING FOR THE NAVBAR*/
 ul.nav a:hover { 
