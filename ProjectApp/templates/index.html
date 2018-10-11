@@ -51,14 +51,26 @@
         </nav>
 
         <div class="hero text-center">
-            <h1>The Leading Cause</h1>
-            <p>Do you know what is killing America?</p>
+            <h1>LEADING CAUSES</h1>
+            <p>HEALTH STARTS WITH KNOWLEDGE </p>
             <a href="#map" class="btn btn-circle js-scroll-trigger">
                 <i class="fa fa-angle-double-down animated"></i>
             </a>
         </div>
 
-    <!--ROW 1: SUMMARY-->    
+    <!-- ROW 2: Choropleth Object -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Know.</h1>
+                <hr>
+                <p style = "text-align: center"> Do you know what is killing America? We do.</p>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>    
+
+    <!--ROW 2: EXPLORE-->    
     <div class="container">
         <div class="row">
             <div class="col-md-12"  style = "
@@ -72,10 +84,10 @@
                 margin-top: 15px;
                 margin-bottom: 0px"
             }>
-                <h1>Explore</h1>
+                <h1>Explore.</h1>
                 <hr>
                 <p style = "text-align: center"> 
-                Understand the top ten causes of death in the US over time through interactive visualizations<br/>
+                Explore the top ten causes of death in the US over time through the interactive visualizations<br/>
                 </p>
             </div>
         </div>
@@ -85,21 +97,21 @@
                 <a class="ic" href = "https://data.cdc.gov/api/views/bi63-dtpu/rows.json?accessType=DOWNLOAD">
                 <i class="fas fa-heartbeat fa-10x" style="display:inline-block; text-align:center"> </i>
                 </a>
-                <br/><p style = "text-align: center">See the data</p>
+                <br/><p style = "text-align: center">Access the data</p>
             </div>
             <div class="col-md-4">
                     <a class="ic" href = "/drill">
                         <!-- <i class="fa fa-heartbeat fa-large fa-fw" > </i> -->
-                    <i class="fas fa-chart-bar fa-10x" style="display:inline-block; text-align:center"></i>
+                    <i class="fas fa-map-marked-alt fa-10x" style="display:inline-block; text-align:center"></i>
                     </a>
-                    <br/><p style = "text-align: center">Drill down further</p>
+                    <br/><p style = "text-align: center">See the map</p>
                 </div>   
             <div class="col-md-4">
                     <a class="ic" href = "#">
                         <!-- <i class="fa fa-heartbeat fa-large fa-fw" > </i> -->
-                    <i class="fas fa-user-md fa-10x" style="display:inline-block; text-align:center"></i>
+                    <i class="fas fa-chart-bar fa-10x" style="display:inline-block; text-align:center"></i>
                     </a>
-                    <br/><p style = "text-align: center">Get more info</p>
+                    <br/><p style = "text-align: center">Visualize the results</p>
                 </div>
         </div>
             <div class="row"> 
@@ -117,29 +129,18 @@
             </div>
     </div>
 
-    <!-- ROW 2: Choropleth Object -->
-    <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Understand</h1>
-                    <hr>
-                    <p style = "text-align: center"> What were the key findings? What is the story?</p>
-                    <div id="map"></div>
-                </div>
-            </div>
-        </div>
-
     <!--ROW 3: WORKFLOW-->  
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Learn</h1>
+                <h1>Learn.</h1>
                 <hr>
-                <p style = "text-align: center"> Go deeper into the data and learn more.</p>
+                <p style = "text-align: center">Take the initiative</p>
                 <br/>
                 <a href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013"><img class="img-responsive shadow float_text_left" src = "../static/images/dhhsseal.png"></a>
+                <!-- INSERT LINK TO MORE INFORMATION HERE: fas fa-user-md fa-10x -->
                 <p>
-                Data is provided by the Centers for Disease Control's (CDC) and National Center for Health Statistics (NCHS), and it
+                Go deeper into the data and learn more. Data is provided by the Centers for Disease Control's (CDC) and National Center for Health Statistics (NCHS), and it
                 presents various information about the age-adjusted death rates for the ten leading causes of death in the United States 
                 beginning in 1999. Data are based on information from all resident death certificates filed in the 50 states 
                 and the District of Columbia using demographic and medical characteristics.
