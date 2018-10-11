@@ -50,9 +50,19 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
-@app.route("/map")
-def mapper():
-    return render_template("choropleth.html")
+@app.route("/map/year=<year>")
+def mapper(year):
+
+    yearDict = {"year": year}
+
+    return render_template("choropleth.html", dict=yearDict)
+
+@app.route("/drill/start=<start>/end=<end>/state=<state>")
+def driller(start,end,state):
+
+    valuesDict = {"start": start, "end": end, "state": state}
+
+    return render_template("drill.html", dict=valuesDict)
 
 @app.route("/data")
 def data():

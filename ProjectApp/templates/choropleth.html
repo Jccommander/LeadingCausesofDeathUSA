@@ -16,9 +16,9 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- Leaflet-Choropleth JavaScript -->
-    <script type="text/javascript" src="static/js/choropleth/choropleth.js"></script>
+    <script src="{{ url_for('static', filename='js/choropleth/choropleth.js') }}"></script>
 
-    <link rel="stylesheet" type="text/css" href="static/css/choroplethStyle.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/choroplethStyle.css') }}"/>
 
   </head>
   <body>
@@ -26,11 +26,13 @@
     <!-- Div for holding choropleth map -->
     <div id="map"></div>
 
+    <div id="hiddenEl" value="{{ dict.year }}"></div>
+
     <!-- Note: The order of these scripts are EXACT, do not change the order! -->
-    <script type="text/javascript" src="static/js/choropleth/mapbox_api.js"></script>
-    <script type="text/javascript" src="static/js/choropleth/usStates.js"></script>
-    <script type="text/javascript" src="static/js/choropleth/choroplethGenerator.js"></script>
-    <script type="text/javascript" src="static/js/choropleth/statesChoropleth.js"></script>
+    <script src="{{ url_for('static', filename='js/choropleth/mapbox_api.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/choropleth/usStates.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/choropleth/choroplethGenerator.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/choropleth/statesChoropleth.js') }}"></script>
 
   </body>
 </html>

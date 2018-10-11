@@ -8,10 +8,17 @@
 
     <!-- Math-JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- My personal stylesheet -->
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.js') }}">
+
+    
+
 </head>
 
 <!--INDEX PAGE-->
@@ -39,14 +46,26 @@
 
     <!-- PAGE SPECIFIC ELEMENTS BELOW -->
 
+<!-- Hidden html elements rendered by flask for grabbing year & state data to populate the js initializer with -->
+
+<div id="hiddenDrillStart" value="{{ dict.start }}"></div>
+<div id="hiddenDrillEnd" value="{{ dict.end }}"></div>
+<div id="hiddenDrillState" value="{{ dict.state }}"></div>
+
 <!-- Container for the Metadata panel -->
     
     <div class="container">
         <div class="row">
              <div class="col-md-2">
                 <div class="well">
-                    <h5>SELECT test:</h5>
-                    <select id="selDataset"></select>
+                    <h5>Select a Start Year:</h5>
+                    <select id="selStartYear"></select>
+                    <h5>Select an End Year:</h5>
+                    <select id="selEndYear"></select>
+                    <h5>Select a State:</h5>
+                    <select id="selState"></select>
+                    <br><br>
+                    <input type=submit class='btn btn-primary' value='Filter Data' onclick=refreshDrillPage()>
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -55,10 +74,13 @@
                     <div id="sample-metadata" class="panel-body"></div>
                 </div>
             </div>
+            <div class="col-md-10">
+                <!-- Container for the tree map -->
+                <div id='tree' style="width: 900px; height: 500px;"></div>
+            </div>
         </div>
     
 
-<!-- Container for the tree map -->
 
 <!-- Container for the line chart -->
     <div class="row">
@@ -111,8 +133,13 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="{{ url_for('static', filename='js/drill/plotly.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/drill/tree.js') }}"></script>
     <script src="{{ url_for('static', filename='js/drill/drill.js') }}"></script>
+
+
+
     </body>
 </html>

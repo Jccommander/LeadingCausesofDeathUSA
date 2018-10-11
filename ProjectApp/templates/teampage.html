@@ -3,13 +3,31 @@
 
 <!--DEFINING THE HEADER TO CONTAIN BOOTSTRAP STYLING-->
 <head>
-    <meta charset="utf-8" />
-    <title>Health Data Analyzer</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- My personal stylesheet -->
-    <link rel="stylesheet" href="style.css">
-</head>
+        <meta charset="utf-8">
+        <title>Health Data Analyzer</title>
+        
+        <!-- d3 JavaScript -->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+    
+        <!-- Leaflet-Choropleth JavaScript -->
+        <script type="text/javascript" src="../static/js/choropleth/choropleth.js"></script>
+    
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    
+        <!-- Personal stylesheets -->
+        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="../static/css/choroplethStyle.css">
+    
+        <!-- Leaflet CSS & JS-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+    </head>
 
 <!--INDEX PAGE-->
 <body>
@@ -35,22 +53,84 @@
         </nav>
 
     <!-- INDIVIDUAL PAGE CODE GOES HERE -->
+    <!--ROW 1: Team Name and Picture-->    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Team Fist 2 Five
+                <a href = "#"><img class="img-responsive shadow float_text_left" src = "../static/images/fist2five.png"></a>
+                </h1>
+                <hr>
+            </div>
+        </div>
+    </div>
 
+    <!--ROW 2: Names-->  
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Bill Magill
+                    <ul>
+                        <li>Business Operations Analyst formerly with Lockheed Martin and SUPPLY.com, seeking new opportunties in data analysis</li>
+                        <li>BS in Business Management Georgia Tech 2011</li>
+                        <li><a href="https://www.linkedin.com/in/bill-magill/">Linkedin</a> </li>
+                        <li><a href="https://github.com/wmagill4">GitHub</a> </li>
+                    </ul>
+                </h4>
+                <h4>Jeff Box
+                    <ul>
+                        <li>Senior Improvement Leader at Betterra Health </li>
+                        <li><a href="https://www.linkedin.com/in/jeffreybox/">Linkedin</a> </li>
+                        <li><a href="https://github.com/jeffreybox">GitHub</a> </li>
+                    </ul>
+                </h4>
+                <h4>John Commander
+                    <ul>
+                        <li>Legal Case Clerk at Commander Law LLC </li>
+                        <li><a href="https://www.linkedin.com/in/john-commander/">Linkedin</a> </li>
+                        <li><a href="https://github.com/Jccommander">GitHub</a> </li>
+                    </ul>
+                </h4>
+                <h4>John Giglio
+                    <ul>
+                        <li>Data Analyst at General Produce Inc </li>
+                        <li><a href="https://www.linkedin.com/in/jrgiglio/">Linkedin</a> </li>
+                        <li><a href="https://github.com/johngiglio">GitHub</a> </li>
+                    </ul>
+                </h4>
+                <h4>Luke Williams
+                    <ul>
+                        <li>ICU and ED Physician Assistant at Emory Healthcare</li>
+                        <li><a href="https://www.linkedin.com/in/luke-williams-12864085/">Linkedin</a> </li>
+                        <li><a href="https://github.com/luker0bert">GitHub</a> </li>
+                    </ul>
+                </h4>
+                <hr>
+            </div>
+        </div>
+    </div>
 
-    
 <!--FOOTER TO BE USED ACROSS ALL PAGES-->
 <footer class="footer">
-    <!-- Footer Elements -->
-    <div class="container">
-        <br/>
-        <div class ="imgbox">
-            <img class = "float_text_left" src = "Picture2.png">
-                div class="footer-copyright text-left py-3"><font color="white">2018</font><br/><br/>  
+        <!-- Footer Elements -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <div class="container">
+            <br/>
+            <div class="footer-copyright text-center py-3"><font color="white">© 2018 Copyright: Jeffrey Box, John Commander, John Giglio, Bill Magill, & Luke Williams</font><br/><br/>
+                <div class="mb-5 flex-center">
+                    <!-- Notes: fa-2x doubles the icon size, and 'fa-fw' adds  spacing after the icon-->
+                    <!-- Github -->
+                    <a class="ic" href = "https://github.com/Jccommander/Project2-JJJB">
+                        <i class="fab fa-github fa-3x" style="color:white"></i></a>
+                    <!-- 
+                    <a class="ic" href = "https://bootcamp.pe.gatech.edu/data/lp1/?s=Google-Unbranded&dki=Data%20Science&utm_cost=0&trkid=V3ADW427502_53882828873_aud-489106722912:kwd-304086169812__253238998067_g_c__&mkwid=TCVWe2l0_dc&pkw=%2Bdata%20%2Bscientist%20%2Bsalary&pcrid=253238998067&pmt=b&utm_source=google&utm_medium=cpc&utm_campaign=%5BS%5D+Data+-+Data+Sciencet+-+&utm_term=%2Bdata%20%2Bscientist%20%2Bsalary&utm_content=253238998067&s=google&k=%2Bdata%20%2Bscientist%20%2Bsalary&gclid=CjwKCAjwo_HdBRBjEiwAiPPXpI5Hd_IC0S2YVkhnL3viYTKye8ogabLdtyRBCvIY-Nx1_kLWvOD9whoC8LsQAvD_BwE">
+                    <i class="fa fa-certificate fa-2x fa-fw" style="color:white"> </i>
+                    </a>GT --> 
                 </div>
-        <br/>
-            
+                <br/>
+            </div>
         </div>
-</footer>
+    </footer>
 
 <!-- THE FOLLOWING IS REQUIRED FOR BOOTSTRAP INTERACTIVE COMPONENTS -EX- DROPDOWNS. RECOMMENDED BOTTOM PLACEMENT FOR FASTER LOAD TIME-->
 
