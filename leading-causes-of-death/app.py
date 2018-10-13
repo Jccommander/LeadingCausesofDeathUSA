@@ -50,6 +50,11 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+@app.route("/teampage")
+def teampage():
+    """Return the homepage."""
+    return render_template("teampage.html")
+
 @app.route("/map/year=<year>")
 def mapper(year):
 
