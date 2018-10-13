@@ -198,6 +198,18 @@ def yearrangestate(start,end,state):
 
     return jsonify(all_data)
 
+@app.route("/data/allstates")
+# CHOROPLETH: all states, single year, and cause of death
+def allstates():
+    session = Session(engine)
+
+    #placeholder for selection statement, so we don't return the entire table and slow down query
+
+    results = session.query(deaths.state).distinct()
+    data = []
+    for result in results:
+        data.append(result[0])
+    return jsonify(data)
 
 # USER TABE: year, state, cause
 
