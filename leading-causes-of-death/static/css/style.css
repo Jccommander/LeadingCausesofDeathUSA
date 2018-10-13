@@ -121,6 +121,7 @@ ul.nav a:hover {
 }
 
 .hero h1 {
+  text-align: center;
   margin-top: 20px;
   font-size: 0.1rem;
   animation: title 1.2s forwards linear;
