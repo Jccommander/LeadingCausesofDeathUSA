@@ -17,6 +17,40 @@
     window.location.assign(d3CraftedURL);
   }
 
+  function getColor(mag) {
+    var color = "";
+
+    if (mag >= 5) {
+      color = "#b10026"; // light yellowish down to... 
+    }
+    else if (mag >= 4) {
+      color = "#c23845";
+    }
+    else if (mag >= 3) {
+      color = "#d37164";
+    }
+    else if (mag >= 2) {
+      color = "#e5aa83";
+    }
+    else if (mag >= 1) {
+      color = "#edc692";
+    }
+    else {
+      color = "#f6e2a2"; // light redish...?colorblind 
+    }
+    return color;
+  }
+
+  var legendTitles = [
+    {title:"Lowest Death Rate in the Country"},
+    {title:"In the lowest quartile (<25%)"},
+    {title:"In the lower quartile (25% to 50%)"},
+    {title:"In the higher quartile (50% to 75%)"},
+    {title:"In the highest quartile (>75%)"},
+  ];
+
+  var colorSet = ["black","black","black","white","white"];
+
   // Use D3 to select the hidden element in the choropleth html to find the specific year we want to plug
   // Into the choropleth
 
@@ -50,8 +84,10 @@ Promise.all([item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11
     var legend = L.control({ position: "topleft" });
     legend.onAdd = function() {
       var div = L.DomUtil.create("div", "info legend");
+      categories = [0, 1, 2, 3, 4, 5];
+      labels = [];
   
-      var legendInfo = "<form action='/'>" + "<input type=submit class='homeBtn' value='Return to Homepage'> </form>"
+      var menuInfo = "<form action='/'>" + "<input type=submit class='homeBtn' value='Return to Homepage'> </form>"
       + `<p>Current Year: ${specificYear}</p>`
       + "<p>See Data For a Different Year:</p>"
       + "<select id='yearSelector' class='homeSelector' onchange='updateURL(this.value)'>" +
@@ -73,9 +109,18 @@ Promise.all([item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11
       "<option value='2014'>2014</option>" +
       "<option value='2015'>2015</option>" +
       "<option value='2016'>2016</option>" + "</select>" +
-      "<br><br><input type=submit class='homeBtn' value='Select New Year' onclick=refreshPage()>";
+      "<br><br><input type=submit class='homeBtn' value='Select New Year' onclick=refreshPage()><br><br><hr><br>"
+      + "<h3>Map Legend:</h3>";
+      labels.push(menuInfo);
+
+      for (var i = 0; i < categories.length-1; i++) {
+        var legendInfo = `<i style="background: ${getColor(categories[i])}; color:${colorSet[i]}; ">${legendTitles[i].title}</i>`;
+        labels.push(legendInfo);
+        };
+      labels.push(`<i style="background: ${getColor(5)}; color:white ">Highest Death Rate in the Country</i>`);
+      //console.log(labels);
   
-      div.innerHTML = legendInfo;
+      div.innerHTML = labels.join("<br>");
       
       return div;
     };
