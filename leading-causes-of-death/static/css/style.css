@@ -112,7 +112,7 @@ ul.nav a:hover {
   padding: 20px;
   margin: 0;
   background: black;
-  background-image: url("https://github.com/Jccommander/LeadingCausesofDeathUSA/blob/master/leading-causes-of-death/static/images/parallax.jpg?raw=true");
+  background-image: url("https://github.com/Jccommander/Project2-JJJB/blob/master/ProjectApp/static/images/parallax.jpg?raw=true");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -121,7 +121,6 @@ ul.nav a:hover {
 }
 
 .hero h1 {
-  text-align: center;
   margin-top: 20px;
   font-size: 0.1rem;
   animation: title 1.2s forwards linear;
@@ -141,12 +140,12 @@ ul.nav a:hover {
   width: 100%;
 }
 
-.btn, .btn-circle, .js-scroll-trigger{
+/* .btn, .btn-circle, .js-scroll-trigger{
   color: black;
   align-content: center;
   text-align: center;
   font-size: 36px;
-}
+} */
 
 /* media queries & keygrame Aninations ?? */
 
