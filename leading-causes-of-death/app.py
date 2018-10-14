@@ -64,6 +64,13 @@ def driller(start,end,state):
 
     return render_template("drill.html", dict=valuesDict)
 
+@app.route("/drillCause/start=<start>/end=<end>/cause=<cause>")
+def drillCause(start,end,cause):
+
+    valuesDict = {"start": start, "end": end, "cause": cause}
+
+    return render_template("drillCause.html", dict=valuesDict)
+
 @app.route("/data")
 def data():
     session = Session(engine)
@@ -184,6 +191,28 @@ def yearrangestate(start,end,state):
     #placeholder for selection statement, so we don't return the entire table and slow down query
 
     results = session.query(deaths).filter(deaths.year >= start).filter(deaths.year <= end).filter(deaths.state == state).all()
+
+    all_data = []
+    for death in results:
+        death_dict = {}
+        death_dict["id"] = death.id
+        death_dict["year"] = death.year
+        death_dict["state"] = death.state
+        death_dict["cause"] = death.cause
+        death_dict["deaths"] = death.deaths
+        death_dict["death_rate"] = death.death_rate
+        all_data.append(death_dict)
+
+    return jsonify(all_data)
+
+@app.route("/data/start=<start>/end=<end>/cause=<cause>")
+# CHOROPLETH: all states, single year, and cause of death
+def yearrangecause(start,end,cause):
+    session = Session(engine)
+
+    #placeholder for selection statement, so we don't return the entire table and slow down query
+
+    results = session.query(deaths).filter(deaths.year >= start).filter(deaths.year <= end).filter(deaths.cause == cause).all()
 
     all_data = []
     for death in results:
