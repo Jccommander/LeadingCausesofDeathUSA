@@ -82,15 +82,15 @@ function buildMeta(sample, startYear, endYear, state) {
     // there is only one year, in which case it displays the single year
 
     metaPanel.append("p")
-        .text(`State: ${state}`)
+        .html(`<strong>State:</strong> ${state}`)
         
     if (startYear === endYear) {
         metaPanel.append("p")
-        .text(`Year: ${endYear}`)
+        .html(`<strong>Year:</strong> ${endYear}`)
     }
     else {
         metaPanel.append("p")
-        .text(`Year Range: ${startYear} - ${endYear}`)
+        .html(`<strong>Year Range:</strong> ${startYear} - ${endYear}`)
     }
 
     // Loop through the array, average the number of deaths and then append a paragraph tag to
@@ -105,7 +105,7 @@ function buildMeta(sample, startYear, endYear, state) {
         var clean_avg = nf.format(average);
 
         metaPanel.append("p")
-            .text(`${cause[0].cause}: ${clean_avg}`);
+            .html(`<strong>${cause[0].cause}:</strong> ${clean_avg}`);
 
     });
 

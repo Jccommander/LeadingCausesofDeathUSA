@@ -31,7 +31,9 @@ html, body {
   width: 100vw;
 }
 p {
-  font-size: 20px;
+  font-size: 12px;
+  float:left;
+  margin-left: 20px;
 }
 .wrapper {
   min-height: 100%;
@@ -83,6 +85,10 @@ body {
     margin-top: 20px;
     margin-bottom: 20px"
 } 
+
+.panel {
+  text-align:left;
+}
 
 /* STYLING FOR THE NAVBAR*/
 ul.nav a:hover { 
