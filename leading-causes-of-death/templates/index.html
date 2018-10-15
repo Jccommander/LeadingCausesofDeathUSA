@@ -9,24 +9,24 @@
     <!-- d3 JavaScript -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
-    <!-- Leaflet-Choropleth JavaScript -->
-    <script type="text/javascript" src="../static/js/choropleth/choropleth.js"></script>
+    <!-- Leaflet-Choropleth JavaScript
+    <script type="text/javascript" src="../static/js/choropleth/choropleth.js"></script> -->
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!-- Personal stylesheets -->
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/choroplethStyle.css">
+    <link rel="stylesheet" href="../static/css/IndexStyle.css">
+    <!-- <link rel="stylesheet" href="../static/css/choroplethStyle.css"> -->
 
-    <!-- Leaflet CSS & JS-->
+    <!-- Leaflet CSS & JS
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
     integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-    crossorigin=""></script>
+    crossorigin=""></script> -->
 </head>
 
 <!--INDEX PAGE-->
@@ -93,7 +93,7 @@
             }>
                 <h1 style = "text-align: center">Explore.</h1>
                 <hr>
-                <p style = "text-align: center"> 
+                <p style = "text-align: center; margin-bottom: 0px"> 
                 <em>What do you want to discover? Explore interactive visualizations.</em><br/>
                 </p>
             </div>
@@ -102,92 +102,77 @@
             <div class="col-md-4">
                 <!-- Source JSON --> 
                 <a class="ic" href = "https://leading-causes-of-death.herokuapp.com/data">
-                <i class="fas fa-heartbeat fa-10x" style="display:inline-block; text-align:center"> </i>
+                    <i class="fas fa-heartbeat fa-10x" style="display:inline-block; text-align:center"> </i>
                 </a>
-                <br/><p style = "text-align: center">Access the data</p>
+                <p style = "text-align: center; margin-bottom: 0px">Access the data</p><br>
             </div>
             <div class="col-md-4">
-                    <a class="ic" href = "https://leading-causes-of-death.herokuapp.com/map/year=2016">
-                        <!-- <i class="fa fa-heartbeat fa-large fa-fw" > </i> -->
+                <a class="ic" href = "https://leading-causes-of-death.herokuapp.com/map/year=2016">
                     <i class="fas fa-map-marked-alt fa-10x" style="display:inline-block; text-align:center"></i>
-                    </a>
-                    <br/><p style = "text-align: center">Map the causes</p>
+                </a>
+                <p style = "text-align: center; margin-bottom: 0px">Map the causes</p><br>
                 </div>   
             <div class="col-md-4">
-                    <a class="ic" href = "https://leading-causes-of-death.herokuapp.com/drill/start=1999/end=2016/state=Alabama">
-                        <!-- <i class="fa fa-heartbeat fa-large fa-fw" > </i> -->
+                <a class="ic" href = "https://leading-causes-of-death.herokuapp.com/drill/start=1999/end=2016/state=Alabama">
                     <i class="fas fa-chart-bar fa-10x" style="display:inline-block; text-align:center"></i>
-                    </a>
-                    <br/><p style = "text-align: center">Visualize the results</p>
-                </div>
-        </div>
-            <div class="row"> 
-                <div class="col-md-12" style = "
-                background-color: white;
-                padding-left: auto;
-                padding-top: 0px;
-                border-top: 0px;
-                padding-right: auto;
-                padding-bottom: 15px;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 0px;
-                margin-bottom: 20px">
-                </div>
+                </a>
+                <p style = "text-align: center; margin-bottom: 0px">Visualize the results</p><br>
             </div>
+        </div>     
     </div>
 
-    <!--ROW 3: WORKFLOW-->  
+    <!--ROW 3: RESOURCES-->  
     <div class="container">
         <div class="row">
-            <div class="col-md-12" style = "
-            background-color: white;
-            padding-bottom: 0px;
-            margin-bottom: 0px">
+            <div class="col-md-12" style = "padding-top: 20px">
                 <h1 style = "text-align: center">Learn.</h1>
                 <hr>
                 <p style = "text-align: center"><em>How can we improve? Take the initiative.</em></p>
-                <br/>
-                <a href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013"><img class="img-responsive shadow float_text_left" src = "https://github.com/Jccommander/LeadingCausesofDeathUSA/blob/master/leading-causes-of-death/static/images/HHS.jpg?raw=true"></a>
-                <!-- INSERT LINK TO MORE INFORMATION HERE: fas fa-user-md fa-10x -->
-                <p>
-                <strong>STEP 1: DIG DEEPER - </strong>Go deeper into the data and learn more. Data is provided by the Centers for Disease Control's (CDC) and National Center for Health Statistics (NCHS), and it
-                presents various information about the age-adjusted death rates for the ten leading causes of death in the United States 
-                beginning in 1999. Data are based on information from all resident death certificates filed in the 50 states 
-                and the District of Columbia using demographic and medical characteristics.
-                Causes of death are classified by the International Classification of Diseases, Tenth Revision (ICD–10) and  based on the underlying cause. 
-                For more information, <a href="https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013">visit NCHS</a>.
-                </p>
-            </div>
-            <div class="col-md-12" style = "
-                background-color: white;
-                padding-top: 0px;
-                margin-top: 0px;
-                border-top: 0px;
-                border-bottom: 0px;
-                padding-bottom: 0px;
-                margin-bottom: 0px">
-                <a href = "https://www.usnews.com/topics/subjects/public_health"><img class="img-responsive shadow float_text_left" src = "https://github.com/Jccommander/LeadingCausesofDeathUSA/blob/master/leading-causes-of-death/static/images/usnews.png?raw=true"></a>
-                <!-- INSERT LINK TO MORE INFORMATION HERE: fas fa-user-md fa-10x -->
-                <p>
-                <strong>STEP 2: STAY INFORMED - </strong> Reports.... etc etc <a href="https://www.usnews.com/topics/subjects/public_health">visit US News & Health Report</a>.
-                </p>
-            </div>
-            <div class="col-md-12" style = "
-                background-color: white;
-                padding-top: 0px;
-                margin-top: 0px;
-                border-top: 0px;
-                border-bottom: 10px;
-                padding-bottom: 10px;
-                margin-bottom: 10px">
-                <a href = "https://www.cdc.gov/healthcommunication/toolstemplates/entertainmented/tips/PreventiveHealth.html"><img class="img-responsive shadow float_text_left" src = "https://github.com/Jccommander/LeadingCausesofDeathUSA/blob/master/leading-causes-of-death/static/images/CDC.png?raw=true"></a>
-                <!-- INSERT LINK TO MORE INFORMATION HERE: fas fa-user-md fa-10x -->
-                <p>
-                <strong>STEP 3: USE RESOURCES - </strong> Preventative health.... etc etc <a href="https://www.cdc.gov/healthcommunication/toolstemplates/entertainmented/tips/PreventiveHealth.html">visit CDC</a>.
-                </p>
             </div>
         </div>
+        <div class="row" style="background-color: white">
+            <div class="col-md-3">
+                <a href = "https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013">
+                    <img class="center-small" 
+                    src = "https://github.com/Jccommander/LeadingCausesofDeathUSA/blob/master/leading-causes-of-death/static/images/HHS.jpg?raw=true"></a>
+            </div>
+            <div class="col-md-9">   
+                <p>
+                <strong>STEP 1: DIG DEEPER - </strong>Go deeper into the data and learn more. This data is provided by the Centers for Disease Control's (CDC) and National Center for Health Statistics (NCHS), and it
+                is based on information from all resident death certificates filed in the 50 states 
+                and the District of Columbia using demographic and medical characteristics.
+                Causes of death are classified by the International Classification of Diseases, Tenth Revision (ICD–10). <em>See if there are other leading indicators that could help improve our understanding of this dataset!</em>
+                For more information. <a href="https://catalog.data.gov/dataset/age-adjusted-death-rates-for-the-top-10-leading-causes-of-death-united-states-2013">Visit NCHS to access the source data</a>.</p>
+            </div>
+        </div>
+        <div class="row" style="background-color: white">   
+            <div class="col-md-3">
+                <a href = "https://www.usnews.com/topics/subjects/public_health">
+                    <img class="center-small" 
+                    src = "https://github.com/Jccommander/LeadingCausesofDeathUSA/blob/master/leading-causes-of-death/static/images/usnews.png?raw=true"></a>
+            </div>
+            <div class="col-md-9">
+                <p><strong>STEP 2: STAY INFORMED - </strong> Utilize frequently updated resources and reports made available to the public. 
+                    By reading reports on health statistics, you can become aware of changes in population health as well as updates in medical innovation.
+                    US News & Health is one of many resources available for this information. <em>Stay informed on statistics and changes in Healthcare!</em><a href="https://www.usnews.com/topics/subjects/public_health"> Visit US News & Health Report for more information</a>.</p>
+            </div>
+        </div>
+        <div class="row" style="background-color: white">  
+            <div class="col-md-3">
+                <a href = "https://www.cdc.gov/healthcommunication/toolstemplates/entertainmented/tips/PreventiveHealth.html">
+                    <img class="center-small" 
+                    src = "https://github.com/Jccommander/LeadingCausesofDeathUSA/blob/master/leading-causes-of-death/static/images/CDC.png?raw=true"></a>
+            </div>
+            <div class="col-md-9">
+                <p><strong>STEP 3: USE RESOURCES - </strong> Preventative health is often overlooked in a our society focused on reactive medicine.
+                    However, proactivity is becoming more prevalent as the public is becoming more aware and the reimbursement/payment models are shifting.
+                    Use studies provided by organizations like the CDC to find out more about what you can do to reduce risk factors - 
+                    <em>especially in the ten areas reported on in this analysis!</em><a href="https://www.cdc.gov/healthcommunication/toolstemplates/entertainmented/tips/PreventiveHealth.html"> Visit the CDC for more information</a>.</p>
+            </div>
+        </div>
+        <row>
+            <div class="col-md-12" style="background-color: transparent"></div>
+        </row>
     </div>
     
 <!--FOOTER TO BE USED ACROSS ALL PAGES-->
@@ -198,7 +183,6 @@
         <br/>
         <div class="footer-copyright text-center py-3"><font color="white">© 2018 Copyright: Jeffrey Box, John Commander, John Giglio, Bill Magill, & Luke Williams</font><br/><br/>
             <div class="mb-5 flex-center">
-                <!-- Notes: fa-2x doubles the icon size, and 'fa-fw' adds  spacing after the icon-->
                 <!-- Github -->
                 <a class="ic" href = "https://github.com/Jccommander/LeadingCausesofDeathUSA">
                     <i class="fab fa-github fa-3x" style="color:white"></i></a>
@@ -219,9 +203,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 
-    <!-- Script loading segment, do NOT rearrange scripts, they are lined up to run in a specific order! -->
+    <!-- Script loading segment, do NOT rearrange scripts, they are lined up to run in a specific order!
     <script type="text/javascript" src="../static/js/choropleth/mapbox_api.js"></script>
     <script type="text/javascript" src="../static/js/choropleth/usStates.js"></script>
     <script type="text/javascript" src="../static/js/choropleth/choroplethGenerator.js"></script>
-    <script type="text/javascript" src="../static/js/choropleth/statesChoropleth.js"></script>
+    <script type="text/javascript" src="../static/js/choropleth/statesChoropleth.js"></script> -->
 </html>
