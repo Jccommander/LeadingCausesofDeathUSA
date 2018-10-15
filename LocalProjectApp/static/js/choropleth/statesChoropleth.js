@@ -6,10 +6,10 @@
     accessToken: API_KEY
   });
 
-  var d3CraftedURL = `https://leading-causes-of-death.herokuapp.com/map/year=1999`;
+  var d3CraftedURL = `http://127.0.0.1:5000/map/year=1999`;
 
   function updateURL(value) {
-    d3CraftedURL = `https://leading-causes-of-death.herokuapp.com/map/year=${value}`;
+    d3CraftedURL = `http://127.0.0.1:5000/map/year=${value}`;
     console.log(d3CraftedURL);
   };
 

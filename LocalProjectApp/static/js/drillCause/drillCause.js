@@ -47,7 +47,7 @@ function refreshDrillPage() {
         "the ending year.")
     }
     else {
-    var queryURL = `https://leading-causes-of-death.herokuapp.com/drillCause/start=${currentStartYear}/end=${currentEndYear}/cause=${currentCause}`;
+    var queryURL = `http://127.0.0.1:5000/drillCause/start=${currentStartYear}/end=${currentEndYear}/cause=${currentCause}`;
     window.location.assign(queryURL);
     }
 };
@@ -164,7 +164,7 @@ function firstStateArray(array) {
 };
 
 function allDropdownsPopulator(sample) {
-    d3.json(`https://leading-causes-of-death.herokuapp.com/data/allstates`).then(array => {
+    d3.json(`http://127.0.0.1:5000/data/allstates`).then(array => {
 
         firstStateArray(array);
 
@@ -214,7 +214,7 @@ var sampleHolder;
 // the desired Flask route call to retrieve all data to be injected into the functions
 function initializer(startYear = "1999", endYear = "2016", cause = "Cancer") {
 
-    d3.json(`https://leading-causes-of-death.herokuapp.com/data/start=${startYear}/end=${endYear}/cause=${cause}`).then(sample => {
+    d3.json(`http://127.0.0.1:5000/data/start=${startYear}/end=${endYear}/cause=${cause}`).then(sample => {
 
         // Populate the selectors for the drill page with the years and states
         drillOptionSelector();
