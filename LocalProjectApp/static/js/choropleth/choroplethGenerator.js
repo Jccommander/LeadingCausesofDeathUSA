@@ -26,7 +26,7 @@ function resetHighlight(e) {
 
 async function choroplethGenerator(year,cause) {
 
-var result = await d3.json(`https://leading-causes-of-death.herokuapp.com/data/year=${year}`).then(function(response) {
+var result = await d3.json(`http://127.0.0.1:5000/data/year=${year}`).then(function(response) {
 
     // Log the data key of the response so that it can be examined if desired
   
@@ -70,7 +70,7 @@ mapObject = L.choropleth(statesData, {
 
     onEachFeature: function(feature, layer) {
         layer.bindPopup(`<strong>Death Rate for ${feature.properties.name}:</strong> ${feature.properties.density} deaths per 100,000<br>` + 
-            `To see in-depth analytics of this state <a href=https://leading-causes-of-death.herokuapp.com/drill/start=1999/end=2016/state=${feature.properties.name}>click here</a><br>`);
+            `To see in-depth analytics of this state <a href=http://127.0.0.1:5000/drill/start=1999/end=2016/state=${feature.properties.name}>click here</a><br>`);
         layer.on({
             mouseover: highlightFeature,
             mouseout: resetHighlight,

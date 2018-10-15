@@ -47,7 +47,7 @@ function refreshDrillPage() {
         "the ending year.")
     }
     else {
-    var queryURL = `https://leading-causes-of-death.herokuapp.com/drill/start=${currentStartYear}/end=${currentEndYear}/state=${currentState}`;
+    var queryURL = `http://127.0.0.1:5000/drill/start=${currentStartYear}/end=${currentEndYear}/state=${currentState}`;
     window.location.assign(queryURL);
     }
 };
@@ -197,7 +197,7 @@ var sampleHolder;
 // the desired Flask route call to retrieve all data to be injected into the functions
 function initializer(startYear = "1999", endYear = "2016", state = "Alabama") {
 
-    d3.json(`https://leading-causes-of-death.herokuapp.com/data/start=${startYear}/end=${endYear}/state=${state}`).then(sample => {
+    d3.json(`http://127.0.0.1:5000/data/start=${startYear}/end=${endYear}/state=${state}`).then(sample => {
 
         // Populate the selectors for the drill page with the years and states
         drillOptionSelector();
