@@ -65,8 +65,7 @@
                    '<span style="font-family:Courier"><b>' + data.getValue(row, 0) +
                    '</b>, ' + data.getValue(row, 1) +'</span><br>' +
                data.getColumnLabel(2) +
-                   ': ' + size + '<br>' +
-               data.getColumnLabel(3) + ': ' + value + ' </div>';
+                   ': ' + size + '<br>';
           }
         
 

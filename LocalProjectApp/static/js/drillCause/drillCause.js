@@ -226,7 +226,7 @@ function initializer(startYear = "1999", endYear = "2016", cause = "Cancer") {
         // Add the Tree Map function, using whatever library we intend to that generates the tree map
         // plantTree(sample, startYear, endYear, state);
         //drawChart(sample, function() {console.log('finished callback')});
-
+        drawTree(sample, function() {console.log('finished callback')});
         // Save sample outside of the json call
 
         sampleHolder = sample;
