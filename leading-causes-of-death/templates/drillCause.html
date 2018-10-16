@@ -4,7 +4,10 @@
 <!--DEFINING THE HEADER TO CONTAIN BOOTSTRAP STYLING-->
 <head>
     <meta charset="utf-8" />
-    <title>Health Data Analyzer</title>
+    <title>Leading Causes - Drill Causes</title>
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- Math-JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
@@ -14,6 +17,8 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
     <!-- My personal stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -32,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"style="color:white">Health Data Analyzer</a>
+                    <a class="navbar-brand" href="/"style="color:white">Home</a>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         </li>
@@ -138,17 +143,17 @@
 <!-- THE FOLLOWING IS REQUIRED FOR BOOTSTRAP INTERACTIVE COMPONENTS -EX- DROPDOWNS. RECOMMENDED BOTTOM PLACEMENT FOR FASTER LOAD TIME-->
 
     <!-- jQuery Bootstrap's JavaScript plugins -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</body>
     <script src="{{ url_for('static', filename='js/drillCause/plotlyCause.js') }}"></script>
     <!-- <script src="{{ url_for('static', filename='js/drillCause/treeCause.js') }}"></script> -->
     <script src="{{ url_for('static', filename='js/drillCause/drillCause.js') }}"></script>
 
 
 
-    </body>
+
 </html>
