@@ -98,7 +98,7 @@ function buildLine(sample, boolObjects) {
             width: 950,
             title: 'Cause of Death by Year',
             xaxis: {title: 'Year'},
-            yaxis: {title: 'Death Rate'}
+            yaxis: {title: 'Total Deaths'}
         };
 
     // insert the HTML ID
